@@ -90,15 +90,15 @@ h6 {
   width: 300px;
   height: 30px;
   text-align: left;
-  background-color: #F1F9FF;
-  border: 1px solid #CAE7FD;
+  background-color: #fff;
+  border: 1px solid #808080;
   border-radius: 5px;
   margin-right: 15px;
 }
 
 .pop-up-window .container-items .item label, body .block1 p {
   font-size: 1em;
-  color: #2699FB;
+  color: black;
   font-weight: bold;
   padding-bottom: 5px;
   margin-top: 20px;
@@ -109,16 +109,15 @@ h6 {
   height: 30px;
   font-size: 25px;
   color: #fff;
-  border: 1px solid #2699FB;
-  background-color: #2699FB;
+  border: 1px solid #6495ED;
+  background-color: #6495ED;
   border-radius: 50px;
 }
 
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: sans-serif;
   opacity: 1;
   background-color: #fff;
-  /*кнопка переключения темы*/
 }
 body header {
   margin-top: 50px;
@@ -152,71 +151,7 @@ body header.dark-mode {
 body header.dark-mode .logo.dark-mode {
   color: #fff;
 }
-body .block1 {
-  margin-left: 200px;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-body .block1 .block1__form {
-  align-content: center;
-}
-body .container-grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-rows: repeat(auto-fit, min(500px));
-  grid-template-columns: repeat(auto-fit, 250px);
-  gap: 50px;
-  width: 100%;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-body .container-grid .column {
-  border: 1px solid #2699FB;
-  border-radius: 5px;
-}
-body .container-grid .column .heading {
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  color: #656565;
-  padding: 15px;
-}
-body .container-grid .container-flex {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-}
-body .container-grid .container-flex .card {
-  margin: auto;
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 200px;
-  height: 200px;
-  border: 1px solid #F1F9FF;
-  background-color: #F1F9FF;
-  border-radius: 5px;
-}
-body .container-grid .container-flex .card .card-title {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #2699FB;
-}
-body .container-grid .container-flex .card .card-task {
-  font-size: 0.8em;
-  color: #13A1FA;
-}
-body .container-grid .container-flex .card .btn-edit {
-  width: 30px;
-  height: 30px;
-  background-size: 100%;
-  background-image: url(img/btn_edit.png);
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 body .button-cover,
 body .off,
 body .layer {
@@ -253,7 +188,7 @@ body .off {
 }
 body .layer {
   width: 100%;
-  background-color: #BCE0FD;
+  background-color: #696969;
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -277,7 +212,7 @@ body #btn-theme .checkbox:checked + .off:before {
   background-color: #fff;
 }
 body #btn-theme .checkbox:checked ~ .layer {
-  background-color: #ebf7fc;
+  background-color: #C0C0C0;
 }
 body #btn-theme .off,
 body #btn-theme .off:before,
@@ -290,6 +225,19 @@ body.dark-mode {
   background-color: #808588;
 }
 
+header.dark-mode {
+  opacity: 1;
+  color: #fff;
+}
+header.dark-mode .logo.dark-mode {
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #DCDCDC;
+  }
+}
 @media (max-width: 968px) {
   .header {
     display: flex;
@@ -304,11 +252,8 @@ body.dark-mode {
     position: static;
     margin-left: 100px;
   }
-
-  .block1 {
-    margin-left: 10px;
-  }
 }
+
 .pop-up-window {
   margin-left: auto;
   margin-right: auto;
@@ -319,7 +264,7 @@ body.dark-mode {
   display: none;
   position: absolute;
   max-width: 400px;
-  height: 450px;
+  height: 250px;
   background-color: #fff;
   border: 1px solid #656565;
   border-radius: 5px;
@@ -334,17 +279,26 @@ body.dark-mode {
 }
 .pop-up-window .container-items .btn_close {
   position: absolute;
-  top: 0;
+  top: -30px;
   right: 5%;
+  color: red;
+  background: none;
+  border: none;
 }
 .pop-up-window .container-items .item {
   display: flex;
   flex-direction: column;
 }
 .pop-up-window .container-items button {
-  width: 250px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   margin-top: 25px;
   border-radius: 5px;
   margin-left: 20px;
-}/*# sourceMappingURL=pop-upwindow.css.map */
+  font-size: 14px;
+}
+.pop-up-window .container-items button:disabled {
+  background: #e8e8e8;
+  color: #555;
+  box-shadow: none;
+}
