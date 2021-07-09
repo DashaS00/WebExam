@@ -143,3 +143,27 @@ button:disabled {
   background: 	#4682B4;
   border: 	#4682B4;
 }
+
+@media (max-width: 968px) {
+  .container {
+	max-width: 700px;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+   .container {
+	   max-width: 500px;
+  width: 70%;
+  }
+
+}
+
+@media (max-width: 320px) {
+   .container {
+	   max-width: 300px;
+  width: 40%;
+  }
+
+}

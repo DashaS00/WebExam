@@ -11,14 +11,18 @@
   </head>
   <header id="header" :class="[isActive ? 'header.dark-mode' : '']">
         <div class="header" :class="[isActive ? 'header.dark-mode' : '']">
-            <div class="logo">Stefanova</div>
+            <div class="logo">
+			<img srcset="./img/logo1.png 1000w,./img/logo2.png 500w,./img/logo3.png 250w"
+			sizes="(max-width: 320px) 280px,(max-width: 480px) 440px,800px" src="./img/logo1.png"alt="лого"/>
+			</div>
+			<div class="logo">Stefanova</div>
             <div class="theme">
                 <div class="button r" id="btn-theme" onclick="changeTheme('dark-mode')">
                     <input type="checkbox" class="checkbox">
                     <div class="off"></div>
                     <div class="layer"></div>
                 </div>
-            </div>
+            </div></div>
     </header>
   <body>
   <main>
@@ -31,9 +35,23 @@
 					<label for="text">Описание</label>
 					<input v-model="newItem" @keyup.enter="addItem" placeholder="Название задачи">
 				</div>
+				<div class="item">
+					<label for="text">Приоритет</label>
+					<select v-model="priority" >
+						<option value="notVeryImp">Не очень важно</option>
+						<option value="important">Важно</option>
+						<option value="superImp">Супер важно</option>
+					</select>
+				</div>
 				<button @click="addItem" :disabled="newItem.length === 0">Добавить</button>
 			</div>
 		</div>
+        <div class="card">
+          <div class="flex">
+            <input v-model="newItem" @keyup.enter="addItem" placeholder="Задача" />     
+		 <button onclick="showHide('pop-up','header','main')" >Новая задача</button>			
+          </div>
+        </div>
         <div class="card">
           <div class="card-inner">
             <h2>Задачи</h2><br>
@@ -49,7 +67,7 @@
     </div>
 	</main>
 	<footer>
-		<p>Экзаменационная работа по дисциплине "Основы Веб-разработки" Стефановой Дарьи, 191-361</p>
+		<p>Стефанова Дарья Кирилловна, 191-361, Дата экзамена: 09.07.21</p>
 	</footer>
 	<script>
         isActive = true;
@@ -61,6 +79,18 @@
                 obj.style.display = "block";
                 header.style.opacity = 0.4;
                 main.style.opacity = 0.4;
+            }
+        }
+
+        function closeWin(window, header, main) {
+            var win = document.getElementById(window);
+            var header = document.getElementById(header);
+            var main = document.getElementById(main);
+            if (win.style.display != "none") {
+                win.style.display = "none";
+
+                header.style.opacity = 1;
+                main.style.opacity = 1;
             }
         }
 
