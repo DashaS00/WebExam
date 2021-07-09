@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/light.css">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/light.css">
     <link rel="stylesheet" href="css/window.css">
-	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="script.js"></script>
-    <title>ToDoList</title>
-</head>
-<body id="body">
-    <header id="header" :class="[isActive ? 'header.dark-mode' : '']">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+  <header id="header" :class="[isActive ? 'header.dark-mode' : '']">
         <div class="header" :class="[isActive ? 'header.dark-mode' : '']">
             <div class="logo">Stefanova</div>
             <div class="theme">
-                <p class="theme-text">Темная тема</p>
                 <div class="button r" id="btn-theme" onclick="changeTheme('dark-mode')">
                     <input type="checkbox" class="checkbox">
                     <div class="off"></div>
@@ -23,14 +21,62 @@
                 </div>
             </div>
     </header>
-    <main id="main">
-      
-    </main>
-
-    <div class="popup" id="popUp">
-        
+    <div class="container">
+      <div id="app">
+        <div class="card">
+          <div class="flex">
+            <input  placeholder="Добавить задачу" />
+            <button >Добавить</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <h2>Задачи</h2><br>
+            <ul class="list">
+              <li class="list-item" >
+                <div class="list-item-toggle" ></div><span></span>
+                <div class="list-item-delete" >X</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-<footer>
-</footer>
+	<script>
+        isActive = true;
+        function showHide(window, header, main) {
+            var obj = document.getElementById(window);
+            var header = document.getElementById(header);
+            var main = document.getElementById(main);
+            if (obj.style.display != "block") {
+                obj.style.display = "block";
+                header.style.opacity = 0.4;
+                main.style.opacity = 0.4;
+            }
+        }
+
+        function closeWin(window, header, main) {
+            var win = document.getElementById(window);
+            var header = document.getElementById(header);
+            var main = document.getElementById(main);
+            if (win.style.display != "none") {
+                win.style.display = "none";
+
+                header.style.opacity = 1;
+                main.style.opacity = 1;
+            }
+        }
+
+        function changeTheme(theme) {
+            isActive = !isActive;
+            document.body.classList.toggle('dark-mode');
+            document.header.classList.toggle('dark-mode');
+           
+        }
+    </script>
+  </body>
+  <footer>
+	<hr>
+	<p>Экзаменационная работа по дисциплине "Основы Веб-разработки" Стефановой Дарьи, 191-361</p>
+  </footer>
 </html>

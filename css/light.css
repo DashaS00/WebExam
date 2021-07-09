@@ -35,6 +35,9 @@ body {
   font-size: 100%;
   line-height: 1;
   font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 input,
@@ -43,20 +46,56 @@ textarea {
   font-family: inherit;
 }
 
+input::-ms-clear {
+  display: none;
+}
+
 button {
   cursor: pointer;
 }
 
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 body {
-  font-family: Calibri, sans-serif;
+  font-family:  Calibri, sans-serif;
   opacity: 1;
   background-color: #fff;
 }
 
 body header {
   margin-top: 50px;
+  color: #000000;
 }
-
 body header .header {
   display: flex;
   flex-direction: row;
@@ -64,18 +103,43 @@ body header .header {
   align-items: center;
 }
 body header .header .logo {
+  margin-left: 200px;
   font-size: 34px;
+  color: #000000;
   font-weight: bold;
 }
+body header .header .theme {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  right: 100px;
+}
+body header .header .theme .theme-text {
+  padding-right: 15px;
+}
 
+body .button-cover,
 body .off,
 body .layer {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-
+body .button {
+  position: relative;
+  top: 50%;
+  width: 74px;
+  height: 36px;
+  margin: auto 0 auto;
+  overflow: hidden;
+}
+body .button.r,
+body .button.r .layer {
+  border-radius: 100px;
+}
 body .checkbox {
   position: relative;
   width: 100%;
@@ -91,6 +155,7 @@ body .off {
 }
 body .layer {
   width: 100%;
+  background-color: #696969;
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -114,7 +179,7 @@ body #btn-theme .checkbox:checked + .off:before {
   background-color: #fff;
 }
 body #btn-theme .checkbox:checked ~ .layer {
-  background-color: #000000;
+  background-color: #C0C0C0;
 }
 body #btn-theme .off,
 body #btn-theme .off:before,
@@ -124,14 +189,38 @@ body #btn-theme .layer {
 
 body.dark-mode {
   opacity: 1;
-  background-color: #000000;
+  background-color: #808588;
 }
 
 header.dark-mode {
   opacity: 1;
   color: #fff;
 }
-
 header.dark-mode .logo.dark-mode {
   color: #fff;
 }
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: 	#DCDCDC;
+  }
+}
+@media (max-width: 968px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-left: 10px;
+  }
+
+  .theme {
+    position: static;
+    margin-left: 100px;
+  }
+
+  .block1 {
+    margin-left: 10px;
+  }
+}/*# sourceMappingURL=light.css.map */
