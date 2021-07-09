@@ -1,0 +1,141 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  font-family:  Calibri, sans-serif;
+  opacity: 1;
+  background-color: #fff;
+}
+body header {
+  margin-top: 50px;
+}
+body header .header {
+  display: flex;
+  align-items: center;
+}
+body header .header .logo {
+  margin-left: 200px;
+  font-size: 34px;
+  font-weight: bold;
+}
+body header .header .theme {
+  position: absolute;
+  display: flex;
+  right: 100px;
+}
+
+body header.dark-mode {
+  color: #fff;
+}
+body header.dark-mode .logo.dark-mode {
+  color: #fff;
+}
+
+body .off,
+body .layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body .button {
+  position: relative;
+  top: 50%;
+  width: 74px;
+  overflow: hidden;
+}
+
+body .checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  z-index: 3;
+}
+body .off {
+  z-index: 2;
+}
+body .layer {
+  width: 100%;
+  background-color: #000000;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+body #btn-theme .off:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+body #btn-theme .checkbox:checked + .off:before {
+  content: "";
+  left: 42px;
+  background-color: #fff;
+}
+body #btn-theme .checkbox:checked ~ .layer {
+  background-color: #fff;
+}
+body #btn-theme .off,
+body #btn-theme .off:before,
+body #btn-theme .layer {
+  transition: 0.3s ease all;
+}
+
+body.dark-mode {
+  opacity: 1;
+  background-color: #808588;
+}
+
+.pop-up-window {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 10%;
+  z-index: 3;
+  display: none;
+  position: absolute;
+  max-width: 400px;
+  height: 450px;
+  background-color: #fff;
+  border: 1px solid #656565;
+  border-radius: 5px;
+}
